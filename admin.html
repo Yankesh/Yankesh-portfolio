@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-page">
+    <main class="admin-shell">
+        <a class="back-link" href="index.html"><i class="fas fa-arrow-left"></i> Back to portfolio</a>
+        <section class="admin-panel" id="authPanel">
+            <h1>Portfolio Admin</h1>
+            <p>Sign in to edit this portfolio on this browser.</p>
+            <form id="loginForm">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Enter admin email" required>
+                <label for="password">Password</label>
+                <input id="password" type="password" required>
+                <button type="submit">Log in</button>
+            </form>
+            <p class="form-message" id="authMessage" role="status"></p>
+        </section>
+
+        <section class="admin-panel is-hidden" id="editorPanel">
+            <div class="admin-heading">
+                <div><h1>Edit portfolio</h1><p id="signedInEmail"></p></div>
+                <button class="secondary-button" id="logoutButton" type="button">Log out</button>
+            </div>
+            <form id="portfolioForm">
+                <h2>About Me</h2>
+                <label for="aboutText">About Me</label>
+                <textarea id="aboutText" rows="8" required></textarea>
+
+                <h2>Resume</h2>
+                <label for="resumeTitle">Title</label>
+                <input id="resumeTitle" required>
+                <label for="resumeSubtitle">Subtitle</label>
+                <input id="resumeSubtitle" required>
+                <label for="resumeUpdated">Updated date</label>
+                <input id="resumeUpdated" required>
+                <label for="resumeFile">Resume PDF</label>
+                <input id="resumeFile" type="file" accept="application/pdf">
+
+                <h2>Certificates</h2>
+                <div id="certificatesEditor"></div>
+                <button class="secondary-button" id="addCertificate" type="button"><i class="fas fa-plus"></i> Add certificate</button>
+                <button type="submit">Save changes</button>
+            </form>
+            <p class="form-message" id="editorMessage" role="status"></p>
+        </section>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
