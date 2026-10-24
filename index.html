@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <img src="YANKESH.jpg" alt="Profile Photo">
+                </div>
+            </div>
+            <h1 class="name">Yankesh</h1>
+            <p class="tagline">Full Stack Developer | Backend Enthusiast | Problem Solver</p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <h2 class="section-title">About Me</h2>
+            <p class="about-text">
+                I am a third-year Information Technology student with a strong interest in backend and web development. I enjoy building practical and scalable applications using technologies like Node.js, Express.js, MySQL, and EJS.
+                <br><br>
+                I have hands-on experience in developing user authentication systems, database-driven applications, and full-stack projects. One of my notable projects is Campus Hub, where users can register, log in, and share project details through a secure platform.
+                <br><br>
+                I am continuously improving my problem-solving skills and exploring modern tools and technologies to write clean, efficient, and maintainable code. I am currently looking for internship opportunities where I can apply my skills, learn from real-world projects, and grow as a software developer.
+            </p>
+        </section>
+
+        <!-- Resume Section -->
+        <section class="resume">
+            <h2 class="section-title">Resume</h2>
+            
+            <div class="resume-container">
+                <!-- Resume Card -->
+                <div class="resume-card">
+                    <div class="resume-icon-section">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="resume-info-section">
+                        <h3>Yankesh - Resume</h3>
+                        <p class="resume-subtitle">Full Stack Developer | Backend Enthusiast</p>
+                        <div class="resume-meta">
+                            <span><i class="fas fa-calendar"></i> Updated: December 2025</span>
+                            <span><i class="fas fa-file-pdf"></i> PDF Format</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="resume-actions">
+                    <a href="Yankesh_Resume_2025.pdf" target="_blank" class="view-btn">
+                        <i class="fas fa-eye"></i>
+                        View Full Resume
+                    </a>
+                    <a href="Yankesh_Resume_2025.pdf" download="Yankesh_Resume.pdf" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section class="certificates">
+            <h2 class="section-title">Certificates & Achievements</h2>
+            <div class="certificates-grid" id="certificatesGrid">
+                <!-- Certificates will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Certificate Modal -->
+        <div class="modal" id="certificateModal">
+            <span class="modal-close">&times;</span>
+            <div class="modal-content">
+                <img src="" alt="Certificate" id="modalImage">
+                <div class="modal-navigation">
+                    <button class="modal-nav prev" id="prevCert"><i class="fas fa-chevron-left"></i></button>
+                    <button class="modal-nav next" id="nextCert"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-grid">
+                <!-- Email -->
+                <a href="mailto:yankeshmry@gmail.com" class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>yankeshmry@gmail.com</p>
+                </a>
+
+                <!-- Phone -->
+                <a href="tel:+917566396807" class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>+91 7566396807</p>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/Yankesh" target="_blank" class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>@Yankesh</p>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/yankesh-mry-a05495261/" target="_blank" class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>/in/yankesh-mry</p>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/its_me_yankesh_mp/" target="_blank" class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>@its_me_yankesh_mp</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Yankesh. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/Yankesh" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yankesh-mry-a05495261/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/its_me_yankesh_mp/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a href="admin.html" class="admin-login">
+                <i class="fas fa-lock"></i>
+                Admin Login
+            </a>
+        </footer>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
