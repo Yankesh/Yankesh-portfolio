@@ -46,20 +46,26 @@ const certificates = [
     }
 ];
 
+const CURRENT_RESUME_FILE = 'resume.pdf?v=20261026';
+const CURRENT_ABOUT = "Hi, I'm Yankesh, a full-stack developer who likes turning ideas into products that actually run in production.\n\nI'm a Computer Science Engineering student (batch of 2027), and most of what I know comes from building things. My main project, SecondHand, is a peer-to-peer marketplace built with React, Node.js, Express and MongoDB. I deployed it on Vercel and Render with a GitHub Actions CI/CD pipeline. I also built an AI customer support chatbot that runs locally on an open-source LLM, with a Python backend and a React frontend.\n\nAs an AI Research Intern at Ethara AI, I worked on evaluating LLM outputs. That taught me how AI behaves in the real world, not just in demos. I now bring that into the apps I build.\n\nOutside of coursework, I'm exploring cybersecurity and OSINT, which helps me write safer, more thoughtful code. I've also solved 100+ DSA problems and work comfortably with Git, Docker, Postman and AWS basics.\n\nI'm currently looking for fresher Web Developer / Full-Stack roles. Let's connect!";
 function loadPublishedPortfolio() {
     const savedContent = localStorage.getItem('portfolioContent');
     if (!savedContent) return;
 
     const content = JSON.parse(savedContent);
-    if (content.about) document.querySelector('.about-text').textContent = content.about;
+    content.about = CURRENT_ABOUT;
+    document.querySelector('.about-text').innerHTML = CURRENT_ABOUT.replace(/\n\n/g, '<br><br>');
     const resume = content.resume || {};
+    if (resume.file !== CURRENT_RESUME_FILE) {
+        resume.file = CURRENT_RESUME_FILE;
+        content.resume = resume;
+        localStorage.setItem('portfolioContent', JSON.stringify(content));
+    }
     if (resume.title) document.querySelector('.resume-info-section h3').textContent = resume.title;
     if (resume.subtitle) document.querySelector('.resume-subtitle').textContent = resume.subtitle;
     if (resume.updated) document.querySelector('.resume-meta span').innerHTML = `<i class="fas fa-calendar"></i> Updated: ${resume.updated}`;
-    if (resume.file) {
-        document.querySelector('.view-btn').href = resume.file;
-        document.querySelector('.download-btn').href = resume.file;
-    }
+    document.querySelector('.view-btn').href = CURRENT_RESUME_FILE;
+    document.querySelector('.download-btn').href = CURRENT_RESUME_FILE;
     if (Array.isArray(content.certificates)) {
         certificates.splice(0, certificates.length, ...content.certificates);
     }
