@@ -1,10 +1,12 @@
 const ADMIN_USERNAME = 'yankeshmry@gmail.com';
 const ADMIN_PASSWORD = 'Yankesh@890';
 const CONTENT_KEY = 'portfolioContent';
+const CURRENT_RESUME_FILE = 'resume.pdf?v=20261026';
+const CURRENT_ABOUT = "Hi, I'm Yankesh, a full-stack developer who likes turning ideas into products that actually run in production.\n\nI'm a Computer Science Engineering student (batch of 2027), and most of what I know comes from building things. My main project, SecondHand, is a peer-to-peer marketplace built with React, Node.js, Express and MongoDB. I deployed it on Vercel and Render with a GitHub Actions CI/CD pipeline. I also built an AI customer support chatbot that runs locally on an open-source LLM, with a Python backend and a React frontend.\n\nAs an AI Research Intern at Ethara AI, I worked on evaluating LLM outputs. That taught me how AI behaves in the real world, not just in demos. I now bring that into the apps I build.\n\nOutside of coursework, I'm exploring cybersecurity and OSINT, which helps me write safer, more thoughtful code. I've also solved 100+ DSA problems and work comfortably with Git, Docker, Postman and AWS basics.\n\nI'm currently looking for fresher Web Developer / Full-Stack roles. Let's connect!";
 
 const defaultContent = {
-    about: 'I am a third-year Information Technology student with a strong interest in backend and web development. I enjoy building practical and scalable applications using technologies like Node.js, Express.js, MySQL, and EJS.\n\nI have hands-on experience in developing user authentication systems, database-driven applications, and full-stack projects. One of my notable projects is Campus Hub, where users can register, log in, and share project details through a secure platform.\n\nI am continuously improving my problem-solving skills and exploring modern tools and technologies to write clean, efficient, and maintainable code. I am currently looking for internship opportunities where I can apply my skills, learn from real-world projects, and grow as a software developer.',
-    resume: { title: 'Yankesh - Resume', subtitle: 'Full Stack Developer | Backend Enthusiast', updated: 'December 2025', file: 'Yankesh_Resume_2025.pdf' },
+    about: CURRENT_ABOUT,
+    resume: { title: 'Yankesh - Resume', subtitle: 'Full Stack Developer | Backend Enthusiast', updated: 'October 2026', file: 'resume.pdf?v=20261026' },
     certificates: [
         { file: 'Coursera datascience.pdf', title: 'Data Science Certification', issuer: 'Coursera', date: 'January 2025', type: 'pdf' },
         { file: 'Flipkart-SCOA---Warehousing_Yankesh-G-_243.pdf', title: 'Flipkart Supply Chain Optimization', issuer: 'Flipkart', date: 'December 2024', type: 'pdf' },
@@ -27,7 +29,14 @@ function showMessage(element, message, isError = false) {
 }
 
 function readContent() {
-    return JSON.parse(localStorage.getItem(CONTENT_KEY) || JSON.stringify(defaultContent));
+    const content = JSON.parse(localStorage.getItem(CONTENT_KEY) || JSON.stringify(defaultContent));
+    content.about = CURRENT_ABOUT;
+    if (!content.resume) content.resume = {};
+    if (content.resume.file !== CURRENT_RESUME_FILE) {
+        content.resume.file = CURRENT_RESUME_FILE;
+        localStorage.setItem(CONTENT_KEY, JSON.stringify(content));
+    }
+    return content;
 }
 
 function fileToDataUrl(file) {
